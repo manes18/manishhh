@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thank You!</title>
+<style>
+:root{--g:#244a34;--gold:#e8dda8;--bg:#f4f7f4;--ink:#1a2a20}
+@media (prefers-color-scheme:dark){:root{--bg:#101a14;--ink:#eaf2ec}}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--bg);color:var(--ink);font-family:Georgia,serif;text-align:center;padding:24px;overflow:hidden}
+.box{max-width:720px}.tag{display:inline-block;background:var(--g);color:var(--gold);padding:6px 16px;font-weight:700;font-size:13px}
+h1{font-size:clamp(46px,12vw,110px);margin:22px 0 6px;color:var(--g);line-height:1}
+@media (prefers-color-scheme:dark){h1{color:#9fd4b0}}
+.big{font-size:clamp(60px,16vw,130px);cursor:pointer;display:inline-block;animation:bob 1.6s ease-in-out infinite;user-select:none}
+@keyframes bob{50%{transform:translateY(-14px) rotate(6deg)}}
+p{font-size:clamp(17px,3.5vw,24px);line-height:1.5;margin:10px 0}
+.me{font-weight:700;color:var(--g);font-size:22px}@media (prefers-color-scheme:dark){.me{color:#9fd4b0}}
+a.btn{display:inline-block;margin-top:22px;background:var(--g);color:#fff;text-decoration:none;padding:12px 26px;border-radius:30px;font-size:18px}
+.e{position:fixed;top:-50px;font-size:30px;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(115vh) rotate(540deg)}}
+</style></head><body>
+<div class="box">
+<span class="tag">READING HEALTH THROUGH MEALS</span>
+<div><span class="big" id="b" title="Tap me!">🍛</span></div>
+<h1>THANK YOU!</h1>
+<p id="m">For watching my 7-day meal diary. 💥</p>
+<p class="me">DAHAL MANISH &nbsp;|&nbsp; 2630402</p>
+<a class="btn" href="index.html">⬅ Back to the Meals</a>
+</div>
+<script>
+const E=['🍛','🍚','🥟','🍜','🥛','🍎','🍮','🥔','🌶️','🍗','🐟','🥚','🎉'];
+const M=["Dal bhat power, 24 hour! 💪","Mom approves this presentation. 👩‍🍳","Please clap. Or at least don't blast me. 👏","Now go eat something healthy. 🥦","Tummy says thank you too. 😋","The fridge has been notified. 🧊"];
+function drop(n){for(let i=0;i<n;i++){const d=document.createElement('div');d.className='e';d.textContent=E[Math.floor(Math.random()*E.length)];d.style.left=Math.random()*100+'vw';d.style.animationDuration=(2.5+Math.random()*3)+'s';d.style.animationDelay=Math.random()*1.5+'s';document.body.appendChild(d);setTimeout(()=>d.remove(),7500)}}
+drop(40);let k=0;
+document.getElementById('b').onclick=()=>{drop(30);document.getElementById('m').textContent=M[k++%M.length];document.getElementById('b').textContent=E[Math.floor(Math.random()*12)]};
+</script></body></html>
